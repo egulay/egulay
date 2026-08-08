@@ -42,10 +42,19 @@ https://github.com/egulay/kozmik-lahmacun
 ---
 
 ### 🚀 Schema Serpent
+**An AI-powered Spring Boot service that turns messy vendor price files into a clean, queryable PostgreSQL dataset.**
+Schema Serpent is a training project for a fictional pharmacy retailer, built to tackle a real-world integration headache: different vendors describing the same data with different column names, units, currencies, and formats. It sends a small file preview (never full data) to an LLM, which proposes a deterministic transformation scenario. Java then validates, dry-runs, and executes that scenario locally — keeping every import auditable, repeatable, and cheap. It also converts prices to TRY using historical TCMB exchange-rate bulletins and exposes rich, safe reporting (no raw SQL) through Model Context Protocol (MCP) tools, so results can be queried directly from Claude Desktop.
 
-**An AI-powered ETL framework for intelligent schema discovery and data mapping.**
+**Highlights:**
+- Watches an import folder and handles CSV, TSV, XLS, and XLSX out of the box
+- AI proposes the schema mapping once per file; Java does the actual row-by-row transformation — deterministic and inexpensive
+- Self-repairing scenarios: automatic LLM repair attempts if validation or dry-run fails
+- Stores full price history in PostgreSQL, converted to TRY using dated TCMB bulletins
+- Concurrent, chunked, streaming ingestion (no full file ever loaded into memory) with retry and resumability
+- 10 MCP tools for reporting on prices, import history, and currency conversion — usable directly from Claude Desktop
+- Works with local LLMs (LM Studio) or OpenAI
 
-Schema Serpent simplifies importing heterogeneous datasets by automatically discovering source schemas, generating mappings, and reducing manual integration effort through AI.
+**Tech stack:** Java 17 · Spring Boot 4.1 · Spring AI 2.0 · PostgreSQL · Apache POI · MCP
 
 **Repository:**  
 https://github.com/egulay/schema-serpent
