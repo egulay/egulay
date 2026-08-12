@@ -11,7 +11,6 @@ My public projects focus on software architecture, distributed data processing, 
 ## Featured Projects
 
 ### 🥚 Kozmik Lahmacun
-
 **A governed conversational analytics and machine-learning platform for non-technical business users.**
 
 Kozmik Lahmacun translates natural-language requests into validated, versioned execution orders for trusted Apache Spark processing. Corporate datasets remain inside the controlled execution environment and are never processed by the LLM.
@@ -19,7 +18,6 @@ Kozmik Lahmacun translates natural-language requests into validated, versioned e
 The LLM works only with authorized metadata and bounded result facts. It helps interpret user requests, proposes governed execution orders, and produces management-friendly explanations after processing is complete.
 
 **Key Features**
-
 - Natural-language reporting and predictive analysis
 - Governed JSON execution orders
 - No arbitrary SQL, generated Python, or executable code
@@ -34,10 +32,9 @@ The LLM works only with authorized metadata and bounded result facts. It helps i
 - English and Turkish user experience
 - Security-focused, production-inspired architecture
 
-**Repository:**  
-https://github.com/egulay/kozmik-lahmacun
+**Repository:** Private *(as the project has grown beyond an early prototype, the source is no longer publicly available)*
 
-> Kozmik Lahmacun is source-available proprietary software. It may be evaluated in unmodified form but is not licensed for commercial use or modification without permission.
+> Kozmik Lahmacun is proprietary software. It is not currently source-available. Please reach out directly if you'd like to discuss evaluation or collaboration access.
 
 ---
 
