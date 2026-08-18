@@ -172,7 +172,6 @@ https://github.com/egulay/helpdesk
 ---
 
 ## Engineering Philosophy
-
 - Design software for long-term maintainability.
 - Keep architectures understandable, scalable, and secure.
 - Build security into the architecture from the beginning.
@@ -181,6 +180,7 @@ https://github.com/egulay/helpdesk
 - Prefer governed, validated operations over arbitrary generated code.
 - Automate repetitive engineering and verification tasks.
 - Prefer practical engineering over unnecessary complexity.
+- Treat LLMs as a component within a larger system, not the system itself — scoped to the parts of a process that genuinely benefit from non-deterministic reasoning.
 
 ---
 
