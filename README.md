@@ -4,7 +4,7 @@
 
 I am a Software Architect with 20+ years of experience designing enterprise software, distributed systems, and modern data platforms.
 
-My public projects focus on software architecture, distributed data processing, AI-assisted analytics, AI-powered ETL, and secure data engineering. They include both open-source and source-available reference implementations emphasizing maintainability, scalability, security, and practical engineering.
+My public projects focus on software architecture, distributed data processing, AI-assisted analytics, AI-powered ETL, and secure data engineering. They include both open-source and source-available reference implementations emphasizing maintainability, scalability, security, and practical engineering. A single thesis runs through all of them: **AI proposes, deterministic validators decide, trusted code executes.**
 
 ---
 
@@ -15,22 +15,17 @@ My public projects focus on software architecture, distributed data processing, 
 
 Kozmik Lahmacun translates natural-language requests into validated, versioned execution orders for trusted Apache Spark processing. Corporate datasets remain inside the controlled execution environment and are never processed by the LLM.
 
-The LLM works only with authorized metadata and bounded result facts. It helps interpret user requests, proposes governed execution orders, and produces management-friendly explanations after processing is complete.
+The LLM works only with authorized metadata and bounded result facts. It helps interpret user requests, proposes governed execution orders, and produces management-friendly explanations after processing is complete — the AI proposes, deterministic validators decide, trusted code executes.
 
-**Key Features**
-- Natural-language reporting and predictive analysis
-- Governed JSON execution orders
-- No arbitrary SQL, generated Python, or executable code
-- Apache Spark reporting and machine-learning pipelines
-- Automatic model comparison and parameter tuning
-- Privacy-safe management summaries
-- Batch MinIO and event-driven Kafka ingestion
-- Spring Boot control plane
-- Python execution plane
-- SvelteKit and shadcn-svelte product interface
-- PostgreSQL, Redis, Kafka, MinIO, Keycloak, and HashiCorp Vault
-- English and Turkish user experience
-- Security-focused, production-inspired architecture
+**Why it matters**
+- **AI without data exposure** — no arbitrary SQL, generated Python, or executable code ever reaches the data plane; the LLM sees metadata and bounded result contracts, never the datasets
+- **Analytics for everyone** — natural-language reporting, predictive modeling with automatic algorithm comparison and tuning, and privacy-safe executive summaries, in English and Turkish
+- **Enterprise-grade governance** — role-based, owner-scoped workspaces where administrators manage without reading other users' data, backed by an immutable audit trail covering every management, deletion, import, and ingestion action
+- **Corporate identity, built in** — Keycloak-based identity with AD/LDAP federation support: directory-managed users appear automatically, with app-side role assignment and lifecycle sync
+- **Governed data intake** — manual CSV, object-event, and Kafka streaming ingestion into append-only Parquet, with schema-quality quarantine refusing what it cannot safely interpret
+- **Live by default** — real-time grids, workspace tabs, and service health over SSE, designed against a production-inspired event-driven architecture
+
+**Stack:** Spring Boot control plane · Python/PySpark execution plane · SvelteKit + shadcn-svelte UI · PostgreSQL · Kafka · MinIO · Redis · Keycloak · HashiCorp Vault
 
 **Repository:** Private *(as the project has grown beyond an early prototype, the source is no longer publicly available)*
 
@@ -39,68 +34,59 @@ The LLM works only with authorized metadata and bounded result facts. It helps i
 ---
 
 ### 🚀 Schema Serpent
+**An AI-powered Spring Boot service that maps messy vendor price files into PostgreSQL and exposes governed reporting through MCP.**
 
-**An AI-powered Spring Boot service that maps messy vendor price files into PostgreSQL and exposes flexible reporting through MCP.**
+Schema Serpent tackles one of integration's oldest headaches: every vendor describing the same data with different column names, units, currencies, and file formats. Built around a fictional pharmacy retailer, it sends only a small file preview to an LLM, which proposes a deterministic transformation scenario; Java then validates, dry-runs, and executes that scenario locally — keeping every import auditable, repeatable, and inexpensive.
 
-Schema Serpent is a training project built around a fictional pharmacy retailer, designed to tackle a common integration problem: different vendors describing the same data with different column names, units, currencies, and file formats. A small file preview is sent to an LLM, which proposes a deterministic transformation scenario; Java then validates, dry-runs, and executes that scenario locally, keeping every import auditable, repeatable, and inexpensive. Prices are converted to TRY using historical TCMB exchange-rate bulletins, and results are exposed through governed Model Context Protocol (MCP) tools that never accept raw SQL.
+**Why it matters**
+- **AI maps once, Java executes forever** — the LLM sees a preview, not the file; the resulting scenario is validated, dry-run, and replayed deterministically, with automatic repair when validation fails
+- **Built for messy reality** — watches an import directory for CSV, TSV, XLS, and XLSX; streaming, chunked, concurrent ingestion with retry and resumability
+- **Financially correct by design** — full price history in PostgreSQL, converted to TRY using dated, historical TCMB exchange-rate bulletins
+- **Governed reporting, no raw SQL** — 10 parameterized MCP tools for price reporting, import history, and currency conversion, usable directly from Claude Desktop as a local MCP server
+- **Runs on your terms** — works with local LLMs (LM Studio) or OpenAI
 
-**Key Features**
+**Stack:** Java · Spring Boot · PostgreSQL · Model Context Protocol · LM Studio / OpenAI-compatible APIs
 
-- Watches an import directory and handles CSV, TSV, XLS, and XLSX
-- AI proposes the schema mapping once per file; Java performs the deterministic row-by-row transformation
-- Automatic scenario repair on validation or dry-run failure
-- Full price history stored in PostgreSQL, converted to TRY using dated TCMB bulletins
-- Streaming, chunked, concurrent ingestion with retry and resumability
-- Safe, parameterized MCP reporting — no arbitrary SQL
-- 10 MCP tools covering price reporting, import history, and currency conversion
-- Usable directly from Claude Desktop as a local MCP server
-- Works with local LLMs (LM Studio) or OpenAI
-
-**Repository:**  
+**Repository:**
 https://github.com/egulay/schema-serpent
 
 > Schema Serpent is source-available under the PolyForm Noncommercial License 1.0.0. Commercial use requires written permission from the copyright holder.
 
 ---
 
-### ⚡ Kebab Storm
+## More Projects
 
+### ⚡ Kebab Storm
 **A secure distributed ETL framework for Apache Spark.**
 
-Kebab Storm provides schema-driven data processing for large-scale analytics while protecting sensitive information through field-level encryption and secure processing pipelines.
+Kebab Storm provides schema-driven data processing for large-scale analytics while protecting sensitive information end to end — the sensitive fields are encrypted inside the pipeline itself, not bolted on at the storage layer.
 
-**Key Features**
+**Why it matters**
+- **Field-level protection at scale** — AES-256-GCM encryption applied per field within distributed Spark processing, so sensitive values stay protected throughout the pipeline
+- **Schema-driven discipline** — declared schemas govern transformation and validation instead of ad-hoc pipeline code
+- **Keys where they belong** — HashiCorp Vault integration keeps cryptographic material out of code and configuration
+- **Analytics-ready output** — governed Apache Parquet, structured for downstream large-scale processing
 
-- Apache Spark
-- Schema-driven ETL
-- AES-256-GCM field-level encryption
-- Apache Parquet
-- HashiCorp Vault integration
-- Secure data processing
-- Production-oriented architecture
+**Stack:** Apache Spark · Apache Parquet · HashiCorp Vault
 
-**Repository:**  
+**Repository:**
 https://github.com/egulay/kebab-storm
 
 ---
 
 ### 🛠 Helpdesk
-
 **A modern Spring Boot reference application demonstrating enterprise backend engineering practices.**
 
-**Highlights**
+A compact, production-inspired backend showing how contemporary Spring patterns fit together in one coherent codebase.
 
-- Spring Boot
-- REST APIs
-- gRPC
-- Model Context Protocol (MCP)
-- Spring AI
-- PostgreSQL
-- HashiCorp Vault
-- Testcontainers
-- OpenAPI
+**Why it matters**
+- **Three API styles, one domain** — REST, gRPC, and Model Context Protocol served side by side, with OpenAPI documentation
+- **AI as a component** — Spring AI integrated as a scoped capability within the service, not as the architecture
+- **Tested like production** — Testcontainers-backed integration testing against real PostgreSQL, with Vault-managed secrets
 
-**Repository:**  
+**Stack:** Spring Boot · Spring AI · gRPC · MCP · PostgreSQL · HashiCorp Vault · Testcontainers · OpenAPI
+
+**Repository:**
 https://github.com/egulay/helpdesk
 
 ---
@@ -109,10 +95,8 @@ https://github.com/egulay/helpdesk
 
 - Software Architecture
 - Distributed Data Processing
-- Conversational Analytics
-- Machine Learning Platforms
+- Conversational Analytics & Machine Learning Platforms
 - AI-powered ETL
-- Data Engineering
 - Secure Data Engineering
 - Event-driven Systems
 - JVM Ecosystem
@@ -172,15 +156,16 @@ https://github.com/egulay/helpdesk
 ---
 
 ## Engineering Philosophy
+
 - Design software for long-term maintainability.
 - Keep architectures understandable, scalable, and secure.
 - Build security into the architecture from the beginning.
 - Protect data through explicit trust boundaries and least-privilege access.
 - Separate control-plane and execution-plane responsibilities.
 - Prefer governed, validated operations over arbitrary generated code.
+- Treat LLMs as a component within a larger system, not the system itself — scoped to the parts of a process that genuinely benefit from non-deterministic reasoning.
 - Automate repetitive engineering and verification tasks.
 - Prefer practical engineering over unnecessary complexity.
-- Treat LLMs as a component within a larger system, not the system itself — scoped to the parts of a process that genuinely benefit from non-deterministic reasoning.
 
 ---
 
@@ -194,5 +179,5 @@ The projects in this profile are intended to serve as production-inspired refere
 
 ## Connect
 
-**LinkedIn**  
+**LinkedIn**
 https://www.linkedin.com/in/emre-gulay/
