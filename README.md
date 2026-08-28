@@ -10,8 +10,6 @@ My public projects focus on software architecture, distributed data processing, 
 
 ## Featured Projects
 
-## Featured Projects
-
 ### 🥚 Kozmik Lahmacun
 **A governed conversational analytics and machine-learning platform for non-technical business users.**
 
