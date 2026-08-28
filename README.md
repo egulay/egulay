@@ -10,6 +10,8 @@ My public projects focus on software architecture, distributed data processing, 
 
 ## Featured Projects
 
+## Featured Projects
+
 ### 🥚 Kozmik Lahmacun
 **A governed conversational analytics and machine-learning platform for non-technical business users.**
 
@@ -19,13 +21,14 @@ The LLM works only with authorized metadata and bounded result facts. It helps i
 
 **Why it matters**
 - **AI without data exposure** — no arbitrary SQL, generated Python, or executable code ever reaches the data plane; the LLM sees metadata and bounded result contracts, never the datasets
-- **Analytics for everyone** — natural-language reporting, predictive modeling with automatic algorithm comparison and tuning, and privacy-safe executive summaries, in English and Turkish
-- **Enterprise-grade governance** — role-based, owner-scoped workspaces where administrators manage without reading other users' data, backed by an immutable audit trail covering every management, deletion, import, and ingestion action
+- **Analytics for everyone** — natural-language reporting, predictive modeling with automatic algorithm comparison and tuning, and privacy-safe executive summaries (opt-out on request, in either language), in English and Turkish
+- **From answer to analysis in one click** — completed results and trained ML models open directly in the corporate Jupyter environment as generated, bilingual starter notebooks (pandas and Spark ready, model re-scoring included) over short-lived presigned links; data moves server-to-server, never through the user's machine, and every handoff is audited. Jupyter is an output door, never an input door: only governed execution outputs are shared, never source data
+- **Enterprise-grade governance** — role-based, owner-scoped workspaces where administrators manage without reading other users' data, backed by an immutable audit trail covering every management, deletion, import, ingestion, and notebook-handoff action
 - **Corporate identity, built in** — Keycloak-based identity with AD/LDAP federation support: directory-managed users appear automatically, with app-side role assignment and lifecycle sync
 - **Governed data intake** — manual CSV, object-event, and Kafka streaming ingestion into append-only Parquet, with schema-quality quarantine refusing what it cannot safely interpret
-- **Live by default** — real-time grids, workspace tabs, and service health over SSE, designed against a production-inspired event-driven architecture
+- **Live by default** — real-time grids, workspace tabs, audit log, and service health over SSE, designed against a production-inspired event-driven architecture
 
-**Stack:** Spring Boot control plane · Python/PySpark execution plane · SvelteKit + shadcn-svelte UI · PostgreSQL · Kafka · MinIO · Redis · Keycloak · HashiCorp Vault
+**Stack:** Spring Boot control plane · Python/PySpark execution plane · SvelteKit + shadcn-svelte UI · PostgreSQL · Kafka · MinIO · Redis · Keycloak · HashiCorp Vault · JupyterLab integration
 
 **Repository:** Private *(as the project has grown beyond an early prototype, the source is no longer publicly available)*
 
