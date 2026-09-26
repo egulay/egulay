@@ -58,6 +58,28 @@ https://github.com/egulay/schema-serpent
 
 ---
 
+### 😈 Dark Journal
+**A private, encrypted Android diary where one of the seventy-two spirits of the Ars Goetia answers a sealed entry — in words from an LLM that runs entirely on the phone.**
+
+Dark Journal (Karanlık Günlük in Turkish) is a personal project: the diary I wanted on my own phone. Entries are sealed with AES-256-GCM under a key that exists only on the device and as a 24-word recovery phrase. When an entry is sealed, deterministic code reads its themes and chooses the court, the spirit, and the tone; a small on-device model is asked only to speak in that voice. The thesis in miniature: code decides, the model only speaks — and nothing the user writes ever leaves the phone.
+
+**Why it matters**
+- **Code decides, the model only speaks** — themes, spirit, and tone are chosen deterministically from keyword themes in English and Turkish; the LLM receives a bounded brief and writes the answer, nothing more
+- **Safety in code, not in the prompt** — a crisis check runs before the model is asked anything; when an entry reads like a crisis, no spirit answers and the app points to real help
+- **Private by construction** — Gemma 4 E2B runs on the phone's CPU through LiteRT-LM; no accounts, no servers, no analytics, no ads
+- **A vault, not a notes app** — AES-256-GCM for every entry and for the index, a keystore-wrapped key, and a BIP-39 recovery phrase shown once; nothing on disk is plaintext, not even file names
+- **Backups without a cloud project** — one sealed file written to any place the user picks through Android's own file picker, Google Drive included; no OAuth, no API keys; restores merge and never delete
+- **Built for curious eyes** — an optional veil blurs what was written in the list and leaves no picture of the journal among the recent apps
+- **Motion as a design language** — a monochrome interface under a randomized night sky, where every piece assembles and nothing simply appears
+
+**Stack:** Flutter · Dart · Kotlin platform channels · Gemma 4 E2B via LiteRT-LM · AES-256-GCM · Android Keystore · BIP-39 · Google Play Billing
+
+**Repository:** Private
+
+> Dark Journal is on its way to Google Play, with a closed test first. If you have an Android phone and would like to join the test, please reach out.
+
+---
+
 ## More Projects
 
 ### ⚡ Kebab Storm
