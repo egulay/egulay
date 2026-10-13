@@ -100,6 +100,27 @@ https://github.com/egulay/kebab-storm
 
 ---
 
+### 🍢 kebab.nvim
+**A LazyVim layer that makes Neovim behave like a full IDE — for the stacks in this profile.**
+
+kebab.nvim is the editor side of the same engineering habits: a thin, testable layer over LazyVim that adds the things a graphical IDE gives you for free. Project wizards, code generation, run configurations, a right-click menu on every surface, and a JDBC database IDE — all of it declared one file per language, so adding a stack is adding a file rather than editing six.
+
+**Why it matters**
+- **Two audiences, both first class** — every action has a mouse path and a keyboard path; shortcuts are shown as the keys you press (`Space → D → D`, not `<leader>DD`), and the right-click menus are swept by tests that check each entry against its real target
+- **A database IDE over JDBC** — nine engines through drivers fetched from Maven Central, a warm JVM per connection (0.2ms a query after the first), paging that holds the result set open instead of re-running the query, and a structure view built from driver metadata rather than dialect SQL
+- **Governed, read-only queries for agents** — `kebab diagnostics|definition|references|symbols|hover` answers from a real language server with `--json` and a three-outcome `--exit-code`; nothing in that surface can write to a repository, and a test asserts it
+- **It notices what agents do** — Ghost Mode follows edits made outside the editor and shows the file that changed, holding a burst until you are idle rather than moving the view under your hands
+- **Verified where it actually runs** — 1,672 headless assertions, 31 checks driven through a real terminal with real mouse reports, nine databases exercised against live servers in containers, and a clean-machine install rebuilt from nothing in CI on two Neovim versions
+
+**Stack:** Lua · Neovim 0.12+ / LazyVim · Java (a single-file JDBC bridge) · Bash · PostgreSQL · MySQL · MariaDB · SQL Server · Oracle · SQLite · H2 · DuckDB · ClickHouse
+
+**Repository:**
+https://github.com/egulay/kebab.nvim
+
+> kebab.nvim is open source under the MIT License.
+
+---
+
 ### 🛠 Helpdesk
 **A modern Spring Boot reference application demonstrating enterprise backend engineering practices.**
 
@@ -125,6 +146,7 @@ https://github.com/egulay/helpdesk
 - AI-powered ETL
 - Secure Data Engineering
 - Event-driven Systems
+- Developer Tooling
 - JVM Ecosystem
 - Open-source and Source-available Software
 
@@ -138,6 +160,7 @@ https://github.com/egulay/helpdesk
 - Python
 - SQL
 - TypeScript
+- Lua
 
 ### Frameworks & Platforms
 
@@ -146,6 +169,7 @@ https://github.com/egulay/helpdesk
 - Apache Spark
 - FastAPI
 - SvelteKit
+- Neovim / LazyVim
 
 ### Data Technologies
 
