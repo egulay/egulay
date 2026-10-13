@@ -106,7 +106,7 @@ https://github.com/egulay/kebab-storm
 kebab.nvim is the editor side of the same engineering habits: a thin, testable layer over LazyVim that adds the things a graphical IDE gives you for free. Project wizards, code generation, run configurations, a right-click menu on every surface, and a JDBC database IDE — all of it declared one file per language, so adding a stack is adding a file rather than editing six.
 
 **Why it matters**
-- **Two audiences, both first class** — every action has a mouse path and a keyboard path; shortcuts are shown as the keys you press (`Space → D → D`, not `<leader>DD`), and the right-click menus are swept by tests that check each entry against its real target
+- **Two audiences, both first class** — every action has a mouse path and a keyboard path, and every shortcut is written the way you press it: `Space → D → D` for keys one after the other, `Ctrl+Enter` for keys held together. The right-click menus are swept by tests that check each entry against its real target
 - **A database IDE over JDBC** — nine engines through drivers fetched from Maven Central, a warm JVM per connection (0.2ms a query after the first), paging that holds the result set open instead of re-running the query, and a structure view built from driver metadata rather than dialect SQL
 - **Governed, read-only queries for agents** — `kebab diagnostics|definition|references|symbols|hover` answers from a real language server with `--json` and a three-outcome `--exit-code`; nothing in that surface can write to a repository, and a test asserts it
 - **It notices what agents do** — Ghost Mode follows edits made outside the editor and shows the file that changed, holding a burst until you are idle rather than moving the view under your hands
