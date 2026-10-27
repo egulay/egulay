@@ -59,25 +59,32 @@ https://github.com/egulay/schema-serpent
 ---
 
 ### 😈 Dark Journal
-**A private, encrypted Android diary where one of the seventy-two spirits of the Ars Goetia answers a sealed entry — in words from an LLM that runs entirely on the phone.**
+**An encrypted Android diary where one of the seventy-two spirits of the Ars Goetia answers a sealed entry, in words from a language model that runs entirely on the phone. On Google Play, in English and Turkish.**
 
-Dark Journal (Karanlık Günlük in Turkish) is a personal project: the diary I wanted on my own phone. Entries are sealed with AES-256-GCM under a key that exists only on the device and as a 24-word recovery phrase. When an entry is sealed, deterministic code reads its themes and chooses the court, the spirit, and the tone; a small on-device model is asked only to speak in that voice. The thesis in miniature: code decides, the model only speaks — and nothing the user writes ever leaves the phone.
+Dark Journal (Karanlık Günlük in Turkish) is the diary I wanted on my own phone, now published for anyone. What you write is encrypted the moment it is saved and never leaves the phone. Seal an entry and a spirit reads it and answers in its own voice: teasing, comforting or agreeing. The answer is written by Gemma 4 E2B running on the phone's CPU; nothing is sent anywhere to be read. The profile's thesis in miniature: the model proposes a reading of the entry from a fixed vocabulary, deterministic code decides which spirit answers, and the model then speaks only in that spirit's voice.
 
 **Why it matters**
-- **Code decides, the model only speaks** — themes, spirit, and tone are chosen deterministically from keyword themes in English and Turkish; the LLM receives a bounded brief and writes the answer, nothing more
-- **Safety in code, not in the prompt** — a crisis check runs before the model is asked anything; when an entry reads like a crisis, no spirit answers and the app points to real help
-- **Private by construction** — Gemma 4 E2B runs on the phone's CPU through LiteRT-LM; no accounts, no servers, no analytics, no ads
-- **A vault, not a notes app** — AES-256-GCM for every entry and for the index, a keystore-wrapped key, and a BIP-39 recovery phrase shown once; nothing on disk is plaintext, not even file names
-- **Backups without a cloud project** — one sealed file written to any place the user picks through Android's own file picker, Google Drive included; no OAuth, no API keys; restores merge and never delete
-- **Built for curious eyes** — an optional veil blurs what was written in the list and leaves no picture of the journal among the recent apps
-- **Motion as a design language** — a monochrome interface under a randomized night sky, where every piece assembles and nothing simply appears
+- **Private by construction** — no account, no server, no analytics, no ads. The network is used for two things only: downloading the model once, and sending an answer report if the reader chooses to
+- **A vault, not a notes app** — the journal is one SQLite database encrypted whole with AES-256 (SQLite3MultipleCiphers in SQLCipher 4's format: every page AES-256-CBC with an HMAC-SHA512, so a page changed or damaged does not read). The 256-bit key is kept in the phone's secure storage, wrapped by the Android Keystore, and shown once as a 24-word BIP-39 phrase; without the phone or the words nothing can be recovered, by the developer included
+- **Backups without a cloud project** — one sealed file, a complete copy of the database under the same key, written to any place the user picks through Android's own picker (Google Drive, Downloads, any storage app) and rewritten on leaving the app; no OAuth, no API keys. A damaged backup is refused whole; a restore adds what is missing and never deletes
+- **The model reads, the code chooses, the spirit speaks** — the model first reads the entry (what it feels, what it is about, how heavily), choosing from the app's own vocabulary, so nothing is matched against the writer's words and it works in any language; from that reading, code on the device picks the spirit whose office fits best, or the one the writer named. Each of the seventy-two has a profile of its nature and way of speaking, checked against the old books (Mathers/Crowley, 1904), and nothing in code sets a tone or cuts an answer
+- **Fitted to the phone** — the 2.6 GB model is fetched by Android's own download manager (it carries on with the app closed and waits for Wi-Fi unless told otherwise) and moved into place a piece at a time, so the phone never needs room for it twice; a short test read then measures the phone and sets how much of an entry the model takes in at once (up to 4096 tokens)
+- **The sky, kept with each entry** — the Moon's phase and its mansion (one of Agrippa's twenty-eight), and with location on, the planets of the day and the hour, the constellation straight overhead (all 88, drawn as lines through their stars) and the sign rising in the east, with the image Agrippa gives its ten degrees. The approximate location is read once per entry and never stored
+- **A diary first** — the year in numbers, the list day by day, a month opened as a map of stars, the journal read as a notebook one entry to a leaf, a veil that blurs the list for eyes over a shoulder, the phone's own lock (fingerprint, face, PIN; the app never sees any of them), and burning an entry with a moment to take it back
+- **Motion as a design language** — a monochrome interface under a night sky new on every page, clouded until the voice arrives; every piece assembles and nothing simply appears
+- **Verified where it runs** — 208 automated tests, among them the schema migrations, the backup store, the lock and the translations; every change is checked on a phone before release
 
-**Stack:** Flutter · Dart · Kotlin platform channels · Gemma 4 E2B via LiteRT-LM · AES-256-GCM · Android Keystore · BIP-39 · Google Play Billing
+**Stack:** Flutter · Dart · Kotlin platform channels · Gemma 4 E2B via LiteRT-LM · SQLite with SQLite3MultipleCiphers (AES-256) · drift · Android Keystore · BIP-39 · Android DownloadManager · Google Play Billing · d3-celestial star data
+
+**Google Play:**
+https://play.google.com/store/apps/details?id=io.gulay.dark_journal
+
+**Privacy policy:**
+https://gulay.io/dark-journal-privacy-policy
 
 **Repository:** Private
 
-> Dark Journal is on its way to Google Play, with a closed test first. If you have an Android phone and would like to join the test, please reach out.
-
+> Dark Journal runs on Android 11 or later on a 64-bit phone. The spirits are fiction; the privacy is not. Answers are generated by AI and can be wrong or strange; each can be reported from under it.
 ---
 
 ## More Projects
